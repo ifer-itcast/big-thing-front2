@@ -5,11 +5,17 @@ $(function () {
   // location.search.split('?')[1].split('&') // ['id=59068', 'age=18']
 
   const formatParams = (str) => {
-    let r = str.split('?')[1].split('&');
+    /* let r = str.split('?')[1].split('&');
     const obj = {};
     for (let i = 0; i < r.length; i++) {
       let arr = r[i].split('=');
       obj[arr[0]] = arr[1];
+    }
+    return obj; */
+    const obj = {};
+    let r = str.split('?')[1].split(/=|&/);
+    for (let i = 0; i < r.length; i+= 2) {
+      obj[r[i]] = r[i + 1];
     }
     return obj;
   };
@@ -51,7 +57,7 @@ $(function () {
         // 使用模板引擎，渲染分类的下拉菜单
         var htmlStr = template('tpl-cate', res);
         $('[name=cate_id]').html(htmlStr);
-        form.render();
+        // form.render();
         // 要等到分类也加载并渲染完毕了再填充
         layui.form.val('artEdit', data);
         // 富文本编辑器里面并没有默认的内容，只有新版本才支持，这里使用手动填充

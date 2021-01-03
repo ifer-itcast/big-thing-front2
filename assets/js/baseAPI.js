@@ -13,7 +13,7 @@ $.ajaxPrefilter(function (options) {
             // 1. 清空 token
             localStorage.removeItem('token');
             // 2. 强制跳转到登录页
-            location.href = '/login.html';
+            window.top.location.href = '/login.html';
         }
     };
 });
