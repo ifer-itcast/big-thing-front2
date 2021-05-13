@@ -66,7 +66,7 @@ $(function () {
           .contentDocument.querySelector('#tinymce').innerHTML = data.content;
 
         // 渲染当前用户的头像
-        $image.prop('src', 'http://ajax.frontend.itheima.net' + data.cover_img);
+        $image.prop('src', 'http://api-breakingnews-web.itheima.net' + data.cover_img);
         // 等图片 src 正确了之后，再进行初始化
         $image.cropper(options);
       },
